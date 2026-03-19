@@ -1,0 +1,27 @@
+{
+  "name": "virtual-event-platform",
+  "version": "1.0.0",
+  "description": "A Node.js backend for virtual event management with secure authentication, role-based access, and event registration via REST APIs.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maitrii-joshii/virtual-event-platform.git"
+  },
+  "author": "MJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maitrii-joshii/virtual-event-platform/issues"
+  },
+  "homepage": "https://github.com/maitrii-joshii/virtual-event-platform#readme",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
