@@ -3,6 +3,7 @@ const app = require('./src/app');
 
 const PORT = process.env.PORT || 3000;
 
+// Start the server
 app.listen(PORT, (err) => {
     if(err) {
         return console.error("Failed to start server: ", err);
