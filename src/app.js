@@ -1,14 +1,36 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const app = express();
-const usersRoute = require('./routes/usersRoute');
+const authRoutes = require('./routes/authRoutes');
+const eventRoutes = require('./routes/eventRoutes');
+const registrationRoutes = require('./routes/registrationRoutes');
+const errorHandler = require('./middleware/errorHandler');
+const { globalLimiter, authLimiter } = require('./middleware/rateLimiter');
 
-//Inbuilt middleware
+// Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+app.use(helmet());
+app.use(morgan('combined'));
+app.use(globalLimiter);
 
-// User routes
-app.use("/users", usersRoute);
+
+
+// Auth routes
+app.use("/api/v1/auth", authLimiter, authRoutes);
+
+// Event routes
+app.use("/api/v1/events", eventRoutes);
+
+// Registration routes
+app.use("/api/v1/", registrationRoutes);
+
+// Error handling middleware
+app.use(errorHandler);
 
 // Health check route
 app.get("/", (req, res) => {
