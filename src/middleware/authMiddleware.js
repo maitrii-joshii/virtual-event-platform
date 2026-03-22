@@ -26,3 +26,6 @@ const validateJWT = async(req, res, next) => {
         next(err);
     }
 }
+
+
+module.exports = { validateJWT };
