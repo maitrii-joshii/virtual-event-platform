@@ -2,11 +2,10 @@ const { z } = require('zod');
 
 const createEventRegistrationSchema = z.object({
     ticketType: z
-        .enum(["General", "VIP", "Student"], { message: "Invalid Ticket type" })
-        .required({ message: "Ticket type is required" }),
+        .enum(["General", "VIP", "Student"], { message: "Invalid Ticket type" }),
     notes: z
+        .string({ message: "Invalid Notes" })
         .trim()
-        .required({ message: "Notes are required" })
         .min(10, { message: "Notes must be at least 10 characters long" })
 });
 

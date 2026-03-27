@@ -4,7 +4,7 @@
   "description": "A Node.js backend for virtual event management with secure authentication, role-based access, and event registration via REST APIs.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "nodemon src/server.js"
   },
   "repository": {
@@ -25,10 +25,13 @@
     "express-rate-limit": "^8.3.1",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
+    "mailtrap": "^4.5.1",
+    "mongodb": "^7.1.0",
     "morgan": "^1.10.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "jest": "^30.3.0",
     "nodemon": "^3.1.14"
   }
 }
