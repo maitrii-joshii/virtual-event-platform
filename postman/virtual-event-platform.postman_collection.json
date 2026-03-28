@@ -1,0 +1,481 @@
+{
+  "info": {
+    "_postman_id": "6d34ac6f-17a7-4dd7-998f-ae7873b12fb6",
+    "name": "virtual-event-platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47078337"
+  },
+  "item": [
+    {
+      "name": "Virtual Event Management",
+      "item": [
+        {
+          "name": "User",
+          "item": [
+            {
+              "name": "register",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Albert Einstein\",\r\n    \"email\": \"paulalbert519@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"attendee\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/auth/register",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "login",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"paulalbert519@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"organizer\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/auth/login",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Event",
+          "item": [
+            {
+              "name": "getEvents",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "key": "completed",
+                      "value": "true",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getEventById",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events/:id",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "key": "completed",
+                      "value": "true",
+                      "disabled": true
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "createEvent",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Concert\",\r\n    \"description\": \"Arjit Singh Live Concert\",\r\n    \"date\": \"2026-04-29\",\r\n    \"time\": \"12:00\",\r\n    \"location\": \"Ahmedabad\",\r\n    \"participants\": [\"Arjit Singh\", \"Shreya Ghoshal\"]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateEvent",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"title\": \"Concert Event\",\r\n    \"description\": \"Atif Aslam Event\",\r\n    \"date\": \"2026-03-30\",\r\n    \"time\": \"09:00\",\r\n    \"location\": \"Pune\",\r\n    \"participants\": [\"Atif Aslam\"]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events/:id",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteEvent",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events/:id",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "2",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdWxhbGJlcnQ1MTlAZ21haWwuY29tIiwicm9sZSI6Im9yZ2FuaXplciIsImlkIjoxLCJuYW1lIjoiQWxiZXJ0IEVpbnN0ZWluIiwiaWF0IjoxNzc0NjgwNzE5LCJleHAiOjE3NzQ2ODQzMTl9.W2titgifNghaSpe06z9G2SD9rW93R_BAJ9wkSDralVU",
+                "type": "string"
+              }
+            ]
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Registration",
+          "item": [
+            {
+              "name": "getEventRegistrations",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events/:eventId/registrations",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "registrations"
+                  ],
+                  "query": [
+                    {
+                      "key": "completed",
+                      "value": "true",
+                      "disabled": true
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "eventId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getEventRegistration",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events/:eventId/registrations/:registrationId",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "registrations",
+                    ":registrationId"
+                  ],
+                  "query": [
+                    {
+                      "key": "completed",
+                      "value": "true",
+                      "disabled": true
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "eventId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "registrationId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getUserRegistrations",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/registrations",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "registrations"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "createEventRegistration",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"ticketType\": \"Student\",\r\n    \"notes\": \"Register for Concert\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events/:eventId/registrations",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "registrations"
+                  ],
+                  "variable": [
+                    {
+                      "key": "eventId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteEventRegistration",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{API_HOST}}{{API_VERSION}}/events/:eventId/registrations/:registrationId",
+                  "host": [
+                    "{{API_HOST}}{{API_VERSION}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":eventId",
+                    "registrations",
+                    ":registrationId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "eventId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "registrationId",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdWxhbGJlcnQ1MTlAZ21haWwuY29tIiwicm9sZSI6Im9yZ2FuaXplciIsImlkIjoxLCJuYW1lIjoiQWxiZXJ0IEVpbnN0ZWluIiwiaWF0IjoxNzc0Njg1MDI1LCJleHAiOjE3NzQ2ODg2MjV9.dKyL7MM8CWDcELpmdKjeYASZTeY5jcYvjqwk2WhGCco",
+                "type": "string"
+              }
+            ]
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "API_HOST",
+      "value": ""
+    },
+    {
+      "key": "API_VERSION",
+      "value": ""
+    }
+  ]
+}
