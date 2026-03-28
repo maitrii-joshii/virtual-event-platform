@@ -41,6 +41,10 @@ class EventService {
     // Update an existing event
     updateEvent = async(eventId, title, description, date, time, location, participants, updatedBy) => {
         const event = await eventRepository.getById(Number(eventId));
+
+        if(!event) {
+            throw new EntityNotFoundError("Event");
+        }
         
         if(event.createdBy !== updatedBy) {
             throw new ForbiddenError("You are not authorized to update this event");

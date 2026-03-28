@@ -119,8 +119,9 @@ virtual-event-platform/
 │ │   └── registrationService.js
 │ │
 │ ├── tests/
-│ │   └── controllers/
-│ │       └── authController.test.js
+│ │   ├── auth.test.js
+│ │   ├── event.test.js
+│ │   └── registration.test.js
 │ │
 │ └── app.js
 │
